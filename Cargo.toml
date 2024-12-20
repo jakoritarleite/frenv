@@ -2,5 +2,13 @@
 name = "renv"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = ""
+homepage = "https://github.com/jakoritarleite/frenv"
+repository = "https://github.com/jakoritarleite/frenv"
+readme = "README.md"
+keywords = ["env", "environment", "load"]
 
 [dependencies]
+renv_macro = { path = "macro" }
+thiserror = "2.0.8"
