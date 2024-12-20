@@ -1,5 +1,5 @@
 [package]
-name = "renv"
+name = "frenv"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
@@ -10,5 +10,5 @@ readme = "README.md"
 keywords = ["env", "environment", "load"]
 
 [dependencies]
-renv_macro = { path = "macro" }
+frenv_macro = { path = "macro", version = "0.1.0" }
 thiserror = "2.0.8"

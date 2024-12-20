@@ -1,6 +1,6 @@
-extern crate renv_macro;
+extern crate frenv_macro;
 
-pub use renv_macro::FromEnv;
+pub use frenv_macro::FromEnv;
 use thiserror::Error;
 
 pub trait FromEnv: Sized {

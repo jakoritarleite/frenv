@@ -3,6 +3,24 @@
 version = 3
 
 [[package]]
+name = "frenv"
+version = "0.1.0"
+dependencies = [
+ "frenv_macro",
+ "thiserror",
+]
+
+[[package]]
+name = "frenv_macro"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+ "syn-path",
+]
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.92"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -18,24 +36,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5b9d34b8991d19d98081b46eacdd8eb58c6f2b201139f7c5f643cc155a633af"
 dependencies = [
  "proc-macro2",
-]
-
-[[package]]
-name = "renv"
-version = "0.1.0"
-dependencies = [
- "renv_macro",
- "thiserror",
-]
-
-[[package]]
-name = "renv_macro"
-version = "0.1.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
- "syn-path",
 ]
 
 [[package]]

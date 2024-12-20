@@ -23,7 +23,7 @@ pub fn from_env_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStrea
     let token_stream = match &input.data {
         syn::Data::Struct(data) => parse_struct(&input, prefix_attr, data),
         syn::Data::Enum(_) => {
-            syn::Error::new(input.span(), "union types are not supported!").to_compile_error()
+            syn::Error::new(input.span(), "enums are not supported!").to_compile_error()
         }
         syn::Data::Union(_) => {
             syn::Error::new(input.span(), "union types are not supported!").to_compile_error()
@@ -44,7 +44,7 @@ fn parse_prefix_attr(input: &DeriveInput) -> syn::Result<Option<String>> {
             ));
         }
 
-        if !attr.path().is_ident("renv") {
+        if !attr.path().is_ident("frenv") {
             continue;
         }
 
@@ -83,7 +83,7 @@ fn parse_prefix_attr(input: &DeriveInput) -> syn::Result<Option<String>> {
 fn parse_struct(ast: &DeriveInput, prefix: Option<String>, data: &DataStruct) -> TokenStream {
     let name = &ast.ident;
 
-    let path = path!(::renv);
+    let path = path!(::frenv);
 
     match &data.fields {
         syn::Fields::Named(named_fields) => {
