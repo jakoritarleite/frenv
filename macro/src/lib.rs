@@ -9,7 +9,7 @@ use syn::Meta;
 use syn::Token;
 use syn_path::path;
 
-#[proc_macro_derive(FromEnv, attributes(renv))]
+#[proc_macro_derive(FromEnv, attributes(frenv))]
 pub fn from_env_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
 
@@ -51,12 +51,12 @@ fn parse_prefix_attr(input: &DeriveInput) -> syn::Result<Option<String>> {
         let nested = attr.parse_args_with(Punctuated::<Meta, Token![,]>::parse_terminated)?;
         for meta in nested {
             match &meta {
-                // #[renv(prefix)]
+                // #[frenv(prefix)]
                 Meta::Path(path) if path.is_ident("prefix") => {
                     prefix = Some(input.ident.to_string().to_uppercase());
                 }
 
-                // #[renv(prefix = "SOMETHING")]
+                // #[frenv(prefix = "SOMETHING")]
                 Meta::NameValue(name_value)
                     if name_value.path.is_ident("prefix")
                         && matches!(name_value.value, syn::Expr::Lit(_)) =>
@@ -72,7 +72,7 @@ fn parse_prefix_attr(input: &DeriveInput) -> syn::Result<Option<String>> {
                     prefix = Some(value.value())
                 }
 
-                _ => return Err(syn::Error::new_spanned(meta, "unrecognized renv")),
+                _ => return Err(syn::Error::new_spanned(meta, "unrecognized frenv")),
             }
         }
     }
