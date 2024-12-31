@@ -1,6 +1,6 @@
 [package]
 name = "frenv_macro"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 description = "Macros 0.1 implementation of #[derive(FromEnv)]"
@@ -10,6 +10,7 @@ readme = "README.md"
 keywords = ["env", "environment", "load", "derive", "macro"]
 
 [lib]
+name = "frenv_macro"
 proc-macro = true
 
 [dependencies]
