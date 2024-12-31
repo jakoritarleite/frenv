@@ -1,6 +1,6 @@
 [package]
 name = "frenv"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 description = "A generic config loader from environment variables"
@@ -10,5 +10,5 @@ readme = "README.md"
 keywords = ["env", "environment", "load"]
 
 [dependencies]
-frenv_macro = { path = "macro", version = "0.1.1" }
+frenv_macro = { path = "macro", version = "0.1.2" }
 thiserror = "2.0.8"
